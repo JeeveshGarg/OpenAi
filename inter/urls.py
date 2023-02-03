@@ -15,8 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import summary_list
+from .views import SummaryListView, SummaryCreateView, GenerationListView, GenerationCreateView, SimilarityListView, SimilarityCreateView
+
 
 urlpatterns = [
-    path('summary/', summary_list),
+    path("summary/", SummaryListView.as_view()),
+    path("summary/create/", SummaryCreateView.as_view()),
+    path("generation/", GenerationListView.as_view()),
+    path("generation/create/", GenerationCreateView.as_view()),
+    path("similarity/", SimilarityListView.as_view()),
+    path("similarity/create/", SimilarityCreateView.as_view()),
 ]
