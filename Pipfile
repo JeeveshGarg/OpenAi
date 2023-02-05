@@ -1,0 +1,28 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+autopep8="*"
+
+[packages]
+django = "==2.2.13"
+django-cors-headers = "*"
+django-heroku = "*"
+gunicorn = "*"
+djangorestframework = "*"
+firebase-admin = "*"
+pyaescrypt = "*"
+python-decouple = "*"
+pylint-django = "*"
+drf-yasg2 = "*"
+google-api-python-client = "*"
+google-auth-httplib2 = "*"
+google-auth-oauthlib = "*"
+openai = "*"
+spacy = "*"
+sentence-transformers = "*"
+
+[requires]
+python_version = "3.8"
