@@ -25,9 +25,7 @@ class SummaryCreateView(GenericAPIView):
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         lis = summmary_generator(serializer.initial_data['text'])
-        serializer.initial_data._mutable = True
         serializer.initial_data['summary'] = lis
-        serializer.initial_data._mutable = False
         if serializer.is_valid():
             
             serializer.save()
@@ -48,9 +46,7 @@ class GenerationCreateView(GenericAPIView):
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         lis = generate_text(serializer.initial_data['text'])
-        serializer.initial_data._mutable = True
         serializer.initial_data['generation'] = lis
-        serializer.initial_data._mutable = False
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
@@ -73,9 +69,7 @@ class SimilarityCreateView(GenericAPIView):
         sen.append(serializer.initial_data['text1'])
         sen.append(serializer.initial_data['text2'])
         lis = similarity(sen)
-        serializer.initial_data._mutable = True
         serializer.initial_data['similarity'] = lis
-        serializer.initial_data._mutable = False
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
