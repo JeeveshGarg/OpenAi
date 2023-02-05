@@ -10,6 +10,9 @@ from .models import Summary, Generation, Similarity
 from .serializers import SummarySerializer, GenerationSerializer, SimilaritySerializer
 from rest_framework.decorators import api_view
 from rest_framework import status
+from .text_generation import generate_text
+from .text_summary import summmary_generator
+from .text_similarity import similarity
 
 # Create your views here.
 
@@ -21,13 +24,12 @@ class SummaryCreateView(GenericAPIView):
 
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
+        lis = summmary_generator(serializer.initial_data['text'])
+        serializer.initial_data._mutable = True
+        serializer.initial_data['summary'] = lis
+        serializer.initial_data._mutable = False
         if serializer.is_valid():
-            # change this one.
-            # 
-            # UTKARSH
-            # 
-            # change this one.
-            serializer.validated_data['summary'] = 'summary'
+            
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -45,13 +47,11 @@ class GenerationCreateView(GenericAPIView):
 
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
+        lis = generate_text(serializer.initial_data['text'])
+        serializer.initial_data._mutable = True
+        serializer.initial_data['generation'] = lis
+        serializer.initial_data._mutable = False
         if serializer.is_valid():
-            # change this one.
-            # 
-            # UTKARSH
-            # 
-            # change this one.
-            serializer.validated_data['generation'] = 'generation'
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -69,13 +69,14 @@ class SimilarityCreateView(GenericAPIView):
 
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
+        sen = []
+        sen.append(serializer.initial_data['text1'])
+        sen.append(serializer.initial_data['text2'])
+        lis = similarity(sen)
+        serializer.initial_data._mutable = True
+        serializer.initial_data['similarity'] = lis
+        serializer.initial_data._mutable = False
         if serializer.is_valid():
-            # change this one.
-            # 
-            # UTKARSH
-            # 
-            # change this one.
-            serializer.validated_data['similarity'] = 'similarity'
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
