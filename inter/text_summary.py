@@ -59,5 +59,11 @@ def summmary_generator(text):
     
     return summary
 
+    # TODO: split summary into flashcards
+    # flashcards = summary.split(".") 
+    
+    # return summary,flashcards
+
+
 # with open("summary_text.txt", "w") as file:
 #     file.write(summary)

@@ -23,10 +23,9 @@ google-auth-oauthlib = "*"
 openai = "*"
 spacy = "*"
 sentence-transformers = "*"
-transformers = "*"
 numpy = "*"
+transformers = "*"
 scikit-learn = "*"
-scikit-metrics = "*"
 
 [requires]
 python_version = "3.8"
