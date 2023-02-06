@@ -20,8 +20,8 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 
 
-model = SentenceTransformer('bert-base-nli-mean-tokens')
 def similarity(sen):
+    model = SentenceTransformer('bert-base-nli-mean-tokens')
     #Encoding:
     sen_embeddings = model.encode(sen)
     sen_embeddings.shape
