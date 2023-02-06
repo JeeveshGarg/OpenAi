@@ -98,7 +98,6 @@ scipy==1.10.0
 sentence-transformers==2.2.2
 sentencepiece==0.1.97
 six==1.16.0
-sklearn.metrics==0.0.1
 smart-open==6.3.0
 spacy==3.5.0
 spacy-legacy==3.0.12
