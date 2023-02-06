@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from .views import SummaryCreateView
-# from .views import SummaryListView, SummaryCreateView, GenerationListView, GenerationCreateView, SimilarityListView, SimilarityCreateView
+from .views import SimilarityCreateView
 
 
 urlpatterns = [
@@ -25,5 +25,5 @@ urlpatterns = [
     # path("generation/", GenerationListView.as_view()),
     # path("generation/create/", GenerationCreateView.as_view()),
     # path("similarity/", SimilarityListView.as_view()),
-    # path("similarity/create/", SimilarityCreateView.as_view()),
+    path("similarity/create/", SimilarityCreateView.as_view()),
 ]
