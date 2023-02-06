@@ -14,6 +14,8 @@ from rest_framework import status
 from .text_summary import summmary_generator
 from .text_similarity import similarity
 
+import json
+
 # Create your views here.
 
 class SummaryCreateView(GenericAPIView):
@@ -24,8 +26,9 @@ class SummaryCreateView(GenericAPIView):
 
     def post(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
-        lis = summmary_generator(serializer.initial_data['text'])
+        lis, flashcards = summmary_generator(serializer.initial_data['text'])
         serializer.initial_data['summary'] = lis
+        serializer.initial_data['flashcards'] = json.dumps(flashcards)
         if serializer.is_valid():
             
             serializer.save()

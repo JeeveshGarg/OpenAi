@@ -4,7 +4,7 @@ from .models import Summary, Generation, Similarity
 class SummarySerializer(serializers.ModelSerializer):
     class Meta:
         model = Summary
-        fields = ('text', 'summary')
+        fields = ('text', 'summary', 'flashcards')
 
 class GenerationSerializer(serializers.ModelSerializer):
     class Meta:

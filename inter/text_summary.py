@@ -56,13 +56,10 @@ def summmary_generator(text):
     final_summary = [word.text for word in summary]
     summary = ' '.join(final_summary)
     # flashcards = [summary.split("\n") for summary in summary]
-    
-    return summary
 
-    # TODO: split summary into flashcards
-    # flashcards = summary.split(".") 
+    flashcards = summary.split(".") 
     
-    # return summary,flashcards
+    return summary,flashcards
 
 
 # with open("summary_text.txt", "w") as file:
