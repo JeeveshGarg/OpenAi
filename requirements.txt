@@ -72,7 +72,6 @@ platformdirs==3.0.0
 preshed==3.0.8
 proto-plus==1.22.2
 protobuf==4.21.12
-psycopg2==2.9.5
 psycopg2-binary==2.9.5
 pyAesCrypt==6.0.0
 pyasn1==0.4.8
@@ -99,7 +98,6 @@ scipy==1.10.0
 sentence-transformers==2.2.2
 sentencepiece==0.1.97
 six==1.16.0
-sklearn.metrics==0.0.1
 smart-open==6.3.0
 spacy==3.5.0
 spacy-legacy==3.0.12
