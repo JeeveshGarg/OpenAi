@@ -26,6 +26,7 @@ sentence-transformers = "*"
 numpy = "*"
 transformers = "*"
 scikit-learn = "*"
+psycopg2 = "*"
 
 [requires]
 python_version = "3.8"
