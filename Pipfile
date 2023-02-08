@@ -27,6 +27,8 @@ numpy = "*"
 transformers = "*"
 scikit-learn = "*"
 psycopg2 = "*"
+sumy = "*"
+nltk = "*"
 
 [requires]
 python_version = "3.8"
